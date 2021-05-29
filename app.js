@@ -6,6 +6,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookies = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -60,6 +61,8 @@ app.use(hpp({
 }));
 
 
+// Use for compress user data for deployment..
+app.use(compression());
 
 
 // 2) ROUTES

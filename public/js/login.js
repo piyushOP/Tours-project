@@ -4,7 +4,7 @@ import { showAlert } from './alerts';
 
 export const login = async (email, password) => {
    try{
-      const res = await axios.post('http://localhost:3000/api/v1/users/login', {
+      const res = await axios.post('/api/v1/users/login', {
          email: email,
          password: password
       })
@@ -28,7 +28,7 @@ export const login = async (email, password) => {
 
 export const signup = async (name, email, password, passwordConfirm) => {
    try{
-      const res = await axios.post('http://localhost:3000/api/v1/users/signup', {
+      const res = await axios.post('/api/v1/users/signup', {
          name: name,
          email: email,
          password: password,
@@ -54,7 +54,7 @@ export const signup = async (name, email, password, passwordConfirm) => {
 export const logout = async ()=> {
    try{
       
-      const res = await axios.get('http://localhost:3000/api/v1/users/logout');
+      const res = await axios.get('/api/v1/users/logout');
       if(res.status === 200){
          location.assign('/');
       }
