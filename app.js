@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookies = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -14,6 +15,7 @@ const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 const viewRouter = require('./routes/viewRoutes');
 
 
@@ -25,12 +27,19 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 
+//  Middlewares
+// implement cors for access-control-allow-origin so that everyone can use our APIs
+app.use(cors());
+
+
+app.options('*', cors());
+// app.options('/api/v1/tours/:id', cors());
+
 //Serving static files
 app.use(express.static(path.join(__dirname, 'public'))); 
 
 
 
-//  Middleware
 // Set Security HTTP headers
 app.use(helmet({
   // To show map in UI
@@ -45,6 +54,10 @@ const limiter = rateLimit({ // How many request available per IP
   message: 'Too many requests from this IP, please try again in an hour!'
 })
 app.use('/api', limiter); 
+
+// stripe WEB-HOOK
+app.post('/webhook-checkout', express.raw({ type: 'application/json' }), bookingController.webhookCheckout);
+
 
 // Used to read JSON & Cookies for authorization
 app.use(express.json());
