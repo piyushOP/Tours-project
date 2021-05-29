@@ -66,7 +66,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
 
   // 3) If everything is ok, send jwt token to client
-  createSendToken(user, 200, res. req);
+  createSendToken(user, 200, res, req);
 });
 
 
@@ -236,7 +236,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
 
   // 4) Log the user in, send JWT
-  createSendToken(user, 200, res. req);
+  createSendToken(user, 200, res, req);
 })
 
 
