@@ -1322,3 +1322,43 @@ body {
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
+
+
+
+@media only screen and (max-width:720px){
+  .card-container{
+    display: block;
+  }
+
+  .card{
+    margin-bottom: 10%;
+  }
+
+  body{
+    padding: 1rem;
+  }
+
+  .main{
+    padding: 3rem;
+  }
+
+  .nav--user{
+    position: absolute;
+    top: 0px;
+    display: flex;
+    width: 100%;
+    flex-direction:unset;
+    height: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .nav__el{
+    margin-bottom: 0 !important; 
+  }
+
+  .nav__el--cta{
+    border: 0 !important;
+    padding: 0;
+  }
+}
