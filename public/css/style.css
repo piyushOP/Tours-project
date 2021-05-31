@@ -1326,6 +1326,8 @@ body {
 
 
 @media only screen and (max-width:720px){
+  
+  /* HOME */
   .card-container{
     display: block;
   }
@@ -1339,8 +1341,10 @@ body {
   }
 
   .main{
-    padding: 3rem;
+    padding: 2rem;
   }
+
+  /* NAV BAR */
 
   .nav--user{
     position: absolute;
@@ -1360,5 +1364,63 @@ body {
   .nav__el--cta{
     border: 0 !important;
     padding: 0;
+  }
+
+  /* Tour's Page */
+
+  .section-header{
+    height: 70vh;
+    width: 100%;
+  }
+
+  .heading-box__group{
+    width: 45vh;
+  }
+
+  .section-description{
+    display: block;
+  }
+
+  .section-pictures{
+    display: block;
+  }
+
+  .picture-box__img--1{
+    margin-bottom: 50px;
+  }
+
+  .cta{
+    padding: 3rem;
+  }
+
+  .cta__img--logo, .cta__img--1, .cta__img--2{
+    display: none;
+  }
+
+  .cta__content{
+    display: block;
+    text-align: center;
+  }
+
+  .cta__content > h2,p,a{
+    margin: 1rem 0;
+  }
+
+  .cta__content > a{
+    padding: 0.4rem 2.5rem;
+  }
+
+  /* ME */
+
+  .user-view{
+    display: block;
+  }
+
+  .user-view__form-container{
+    padding: 0 3rem;
+  }
+
+  .login-form{
+    padding: 5rem 3rem;
   }
 }
