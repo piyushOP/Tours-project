@@ -1366,6 +1366,10 @@ body {
     padding: 0;
   }
 
+  .header__logo{
+    margin-bottom: 0.5rem;
+  }
+
   /* Tour's Page */
 
   .section-header{
