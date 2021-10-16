@@ -78,7 +78,7 @@ userSchema.pre("save", function(next){
 
 
 
-// For unactive user means user who deleted themselves from app...
+// For unactive user means user who deleted themselves from app... /^find/ is a regex that says any query starts with find..
 userSchema.pre(/^find/, function(next){
   this.find({ active: {$ne : false} });
   next();
